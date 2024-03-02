@@ -99,18 +99,18 @@ simulated settings </p>
 
 <h2 >Local Migratory Urge</h2>
 <div class="behaviors-grid">
-  <div class="behavior">
+  <!-- <div class="behavior">
     <h3>Seek</h3>
     <p>This behavior guides robots to move towards a target point or area.</p>
     <div class="behavior-images">
       <img src="assets/gif/Cohesion.gif" alt="Cohesion behavior">
     </div>
-  </div>
+  </div> -->
   <div class="behavior">
     <h3>Arrival</h3>
     <p>Arrival behavior is designed for the robots to reach a designated position while slowing down as they arrive.</p>
     <div class="behavior-images">
-      <img src="assets/gif/Cohesion.gif" alt="Cohesion behavior">
+      <img src="assets/gif/map_a2.gif" alt="Cohesion behavior">
     </div>
   </div>
 </div>
@@ -137,6 +137,20 @@ simulated settings </p>
 
 </section>
 
+<section>
+  <h2 id="algorithm-description">Prioritized Acceleration</h2>
+  <p id="explanation">Prioritized acceleration allocation uses a hierarchy to assign accelerations to behaviors based on their importance, adjusting for scenario changes. Acceleration is given according to a priority list, stopping when reaching the boid's maximum limit—if exceeded, the last behavior's allocation is reduced. This system prioritizes critical behaviors, like obstacle avoidance, over less critical ones, such as flock cohesion.</p>
+  <div class="behaviors-grid">
+    <div class="behavior">
+      <div class="behavior-images">
+        <img src="assets/gif/acceleration_request.gif" alt="Result GIF 1" width="100%">
+      </div>
+      <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
+    </div>
+  </div>
+
+</section>
+
 
 
 <!-- <h1 id="algorithm-description">Algorithm Description</h1>
@@ -145,10 +159,10 @@ simulated settings </p>
 <section id="system-architecture">
   <h2>System Architecture</h2>
   <p>
-    Our system's architecture is constructed upon the Robot Operating System (ROS), which facilitates the integration and processing of various data streams critical to autonomous navigation. Config Parameters initialize the system by defining operational constraints such as field of view (FOV) range and angle, behavior weights, priority lists, in-case of arrival (method for leader determination, and number of leaders), which are essential for delineating the interactive space between robots.
+    Our system's architecture is based on the Robot Operating System (ROS), which facilitates the integration and processing of various data streams critical to autonomous navigation. Config Parameters initialize the system by defining operational constraints such as field of view (FOV) range and angle, behavior weights, priority lists, in-case of arrival (method for leader determination, and number of leaders), which are essential for delineating the interactive space between robots.
   </p>
   <div align="center">
-    <img src="./assets/Images/reynolds3.png" width="580" height="350" />
+    <img src="./assets/Images/reynolds4.png" width="580" height="350" />
     <br />Figure 1: Swarm Algorithm Pipeline<br />
   </div>
     
@@ -324,12 +338,6 @@ simulated settings </p>
 <div class="behaviors-grid">
   <div class="behavior">
     <div class="behavior-images">
-      <img src="assets/gif/acceleration_request.gif" alt="Result GIF 1" width="100%">
-    </div>
-    <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
-  </div>
-  <div class="behavior">
-    <div class="behavior-images">
       <img src="assets/gif/asteroid_1.gif" alt="Result GIF 1" width="100%">
     </div>
     <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
@@ -339,6 +347,12 @@ simulated settings </p>
       <img src="assets/gif/asteroid_2.gif" alt="Result GIF 1" width="100%">
     </div>
     <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
+  </div>
+  <div class="behavior">
+    <div class="behavior-images">
+      <img src="assets/gif/demo_asteroid2.gif" alt="Result GIF 1" width="100%">
+    </div>
+    <p id="explanation">Inflating obstacles in the map.</p>
   </div>
 </div>
 
