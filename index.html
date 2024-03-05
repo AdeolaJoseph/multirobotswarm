@@ -68,9 +68,50 @@ practical implementation, offering insights into the dynamics of collective beha
 simulated settings </p>
 
 
+<section>
+<h1>Definition of Terms</h1>
+<ul>
+  <li><h2>Field of View</h2></li>
+  <div class="behaviors-grid">
+    <div class="behavior">
+      <h3>135 FoV</h3>
+      <p>Basic description of arrival behaviour showing goal region, sub-goals and slowing region.</p>
+      <div class="behavior-images">
+        <img src="assets/Images/Results and Plots/FoV/135_fov.png" alt="135 degrees FoV">
+      </div>
+    </div>
+    <div class="behavior">
+      <h3>360 FoV</h3>
+      <p>10 boids (all leaders) reach a designated position while slowing down as they arrive.</p>
+      <div class="behavior-images">
+        <img src="assets/Images/Results and Plots/FoV/360_fov.png" alt="360 degrees FoV">
+      </div>
+    </div>
+  </div>
+
+  <li><h2>Local Neighbourhood</h2></li>
+  <div class="behaviors-grid">
+    <div class="behavior">
+      <h3>Description</h3>
+      <p>Basic description of arrival behaviour showing goal region, sub-goals and slowing region.</p>
+      <div class="behavior-images">
+        <img src="assets/Images/local_neighborhood/local_neighborhood_1.png" alt="Cohesion behavior">
+      </div>
+    </div>
+    <div class="behavior">
+      <h3>Simulation</h3>
+      <p>10 boids (all leaders) reach a designated position while slowing down as they arrive.</p>
+      <div class="behavior-images">
+        <img src="assets/Images/local_neighborhood/local_neighborhood_1.png" alt="Cohesion behavior">
+      </div>
+    </div>
+  </div>
+</ul>
+</section>
+
 <section id="implemented-behaviors">
-  <h2>Implemented Behaviors</h2>
-  <p>In this project, we have implemented various behaviors inspired by Reynolds' rules for multi-robot systems. These behaviors allow the robots to exhibit coordinated movements and achieve specific objectives. Each behavior serves a unique purpose and contributes to the overall functionality of the system.</p>
+  <h1>Achieving Coordination</h1>
+  <p>We implemented various behaviors inspired by Reynolds' rules for multi-robot systems. These behaviors allow the robots to exhibit coordinated movements and achieve specific objectives. Each behavior serves a unique purpose and contributes to the overall functionality of the system.</p>
 
 <!-- <h2>Basic Behaviors</h2>
 <div class="behaviors-grid">
@@ -125,17 +166,31 @@ simulated settings </p>
 
 
 <h2 >Local Migratory Urge</h2>
+ <p id="explanation"> The Arrival behavior is designed for the robots to reach a designated position while gradually slowing down as the swarm
+  gets closer to the target. This behavior carefully adjusts the swarm’s
+  speed, gradually reducing it until it comes to a complete
+  stop at the target location. The process starts when the flock
+  is still a considerable distance from the target, moving at its
+  maximum speed. As it enters a predefined slowing distance, the speed begins to diminish. Beyond this radius, the
+  desired velocity stays at the maximum limit, but once inside,
+  it’s steadily reduced to zero. To smoothen this convergence,
+  the hyperbolic tangent function (tanh) is used. This step-by-step reduction in speed, triggered when the current speed
+  surpasses a set slowdown level and the swarm is within the
+  slowing radius, ensures that the flock decelerates smoothly,
+  ultimately stopping precisely at the goal. The steering force
+  also decreases accordingly, reducing to zero as the target is
+  neared.</p>
 <div class="behaviors-grid">
-  <!-- <div class="behavior">
-    <h3>Seek</h3>
-    <p>This behavior guides robots to move towards a target point or area.</p>
-    <div class="behavior-images">
-      <img src="assets/gif/Cohesion.gif" alt="Cohesion behavior">
-    </div>
-  </div> -->
   <div class="behavior">
-    <h3>Arrival</h3>
-    <p>Arrival behavior is designed for the robots to reach a designated position while slowing down as they arrive.</p>
+    <h3>Arrival Description</h3>
+    <p>Basic description of arrival behaviour showing goal region, sub-goals and slowing region.</p>
+    <div class="behavior-images">
+      <img src="assets/Images/Seek Arrive/arrival.png" alt="Cohesion behavior">
+    </div>
+  </div>
+  <div class="behavior">
+    <h3>Arrival Simulation</h3>
+    <p>10 boids (all leaders) reach a designated position while slowing down as they arrive.</p>
     <div class="behavior-images">
       <img src="assets/gif/map_a2.gif" alt="Cohesion behavior">
     </div>
@@ -143,6 +198,66 @@ simulated settings </p>
 </div>
 
 <h2 >Obstacle Avoidance</h2>
+<p id="explanation">The behaviors described above ensure cohesive flock movement among the boids while preventing collisions with each
+  other. However, the environment may introduce obstacles
+  that necessitate avoidance maneuvers by the boids. The two strategies we implemented for obstacle avoidance are shown below.</p>
+
+  <ul>
+    <li><h3>Potential Fields</h3></li>
+    <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
+    <div class="behaviors-grid">
+      <div class="behavior">
+        <h3>Potential Fields</h3>
+        <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
+        <div class="behavior-images">
+          <img src="assets/Images/Obstacle Avoidance/Potential Field/cricle_potfield.png" alt="Cohesion behavior">
+        </div>
+      </div>
+      <div class="behavior">
+        <h3>Potential Fields</h3>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
+        <div class="behavior-images">
+          <img src="assets/Images/Obstacle Avoidance/Potential Field/circle.png" alt="Steer to Avoid Image 2">
+        </div>
+      </div>
+      <div class="behavior">
+        <h3>Potential Fields</h3>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
+        <div class="behavior-images">
+          <img src="assets/Images/Obstacle Avoidance/Potential Field/hard_maze.png" alt="Steer to Avoid Image 2">
+        </div>
+      </div>
+      <div class="behavior">
+        <h3>Potential Fields</h3>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
+        <div class="behavior-images">
+          <img src="assets/Images/Obstacle Avoidance/Potential Field/simple_maze.png" alt="Steer to Avoid Image 2">
+        </div>
+      </div>
+    </div>
+
+    <li><h3>Steer to Avoid</h3></li>
+    <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
+    <div class="behaviors-grid">
+      <div class="behavior">
+        <h3>Algorithm</h3>
+        <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
+        <div class="behavior-images">
+          <img src="assets/Images/Obstacle Avoidance/See to Avoid/steer_to_avoid.png" alt="Cohesion behavior">
+        </div>
+      </div>
+      <div class="behavior">
+        <h3>Corner Case</h3>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
+        <div class="behavior-images">
+          <img src="assets/Images/Obstacle Avoidance/See to Avoid/corners.png" alt="Steer to Avoid Image 2">
+        </div>
+      </div>
+    </div>
+  </ul>
+
+ 
+<h2>Obstacle Avoidance Simulation</h2>
 <div class="behaviors-grid">
   <div class="behavior">
     <h3>Obstacle Avoidance</h3>
@@ -166,7 +281,19 @@ simulated settings </p>
 
 <section>
   <h2 id="algorithm-description">Prioritized Acceleration</h2>
-  <p id="explanation">Prioritized acceleration allocation uses a hierarchy to assign accelerations to behaviors based on their importance, adjusting for scenario changes. Acceleration is given according to a priority list, stopping when reaching the boid's maximum limit—if exceeded, the last behavior's allocation is reduced. This system prioritizes critical behaviors, like obstacle avoidance, over less critical ones, such as flock cohesion.</p>
+  <p id="explanation">Prioritized acceleration allocation uses a hierarchy to assign accelerations to behaviors based on their importance, adjusting for scenario changes.</p> 
+  
+  <div class="behaviors-grid">
+    <div class="behavior">
+      <h3>Priority Pyramid</h3>
+      <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
+      <div class="behavior-images">
+        <img src="assets/Images/Acceleration/prioritized_acceleration.png" alt="prioritized acceleration pyramid">
+      </div>
+    </div>
+  </div>
+</ul>
+  <p id="explanation"> is given according to a priority list, stopping when reaching the boid's maximum limit—if exceeded, the last behavior's allocation is reduced. This system prioritizes critical behaviors, like obstacle avoidance, over less critical ones, such as flock cohesion.</p>
   <!-- <div class="behaviors-grid">
     <div class="behavior">
       <div class="behavior-images">
@@ -236,28 +363,28 @@ simulated settings </p>
   <div class="behavior">
     <h3>Map A</h3>
     <div class="behavior-images">
-      <img src="assets/images/map_a.png" alt="Empty Map">
+      <img src="assets/images/mapA.png" alt="Empty Map">
     </div>
     <p id="explanation">10x10 empty map environment.</p>
   </div>
   <div class="behavior">
     <h3>Map B</h3>
     <div class="behavior-images">
-      <img src="assets/images/map_b.png" alt="Empty Map">
+      <img src="assets/images/mapB.png" alt="Empty Map">
     </div>
     <p id="explanation">10x10 gridmap with obstacles (black).</p>
   </div>
   <div class="behavior">
     <h3>Map C</h3>
     <div class="behavior-images">
-      <img src="assets/images/map_c.png" alt="Empty Map">
+      <img src="assets/images/mapC.png" alt="Empty Map">
     </div>
     <p id="explanation">10x10 gridmap with obstacles (black).</p>
   </div>
   <div class="behavior">
     <h3>Map D</h3>
     <div class="behavior-images">
-      <img src="assets/images/map_d.png" alt="Empty Map">
+      <img src="assets/images/mapD.png" alt="Empty Map">
     </div>
     <p id="explanation">10x10 gridmap with obstacles (black).</p>
   </div>
