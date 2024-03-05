@@ -72,7 +72,7 @@ simulated settings </p>
   <h2>Implemented Behaviors</h2>
   <p>In this project, we have implemented various behaviors inspired by Reynolds' rules for multi-robot systems. These behaviors allow the robots to exhibit coordinated movements and achieve specific objectives. Each behavior serves a unique purpose and contributes to the overall functionality of the system.</p>
 
-<h2>Basic Behaviors</h2>
+<!-- <h2>Basic Behaviors</h2>
 <div class="behaviors-grid">
   <div class="behavior">
     <h3>Separation</h3>
@@ -95,7 +95,34 @@ simulated settings </p>
       <img src="assets/gif/Cohesion.gif" alt="Cohesion behavior">
     </div>
   </div>
+</div> -->
+
+
+<h2>Basic Behaviors</h2>
+<div class="three-cards-grid">
+  <div class="behavior">
+    <h3>Separation</h3>
+    <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
+    <div class="behavior-images">
+      <img src="assets/gif/separation.gif" alt="Separation behavior">
+    </div>
+  </div>
+  <div class="behavior">
+    <h3>Alignment</h3>
+    <p>Alignment behavior makes the robots align their direction of movement with their neighbors.</p>
+    <div class="behavior-images">
+      <img src="assets/gif/alignment.gif" alt="Alignment behavior">
+    </div>
+  </div>
+  <div class="behavior">
+    <h3>Cohesion</h3>
+    <p>Cohesion encourages robots to steer towards the average position of nearby robots, promoting group cohesion.</p>
+    <div class="behavior-images">
+      <img src="assets/gif/Cohesion.gif" alt="Cohesion behavior">
+    </div>
+  </div>
 </div>
+
 
 <h2 >Local Migratory Urge</h2>
 <div class="behaviors-grid">
@@ -140,8 +167,17 @@ simulated settings </p>
 <section>
   <h2 id="algorithm-description">Prioritized Acceleration</h2>
   <p id="explanation">Prioritized acceleration allocation uses a hierarchy to assign accelerations to behaviors based on their importance, adjusting for scenario changes. Acceleration is given according to a priority list, stopping when reaching the boid's maximum limit—if exceeded, the last behavior's allocation is reduced. This system prioritizes critical behaviors, like obstacle avoidance, over less critical ones, such as flock cohesion.</p>
-  <div class="behaviors-grid">
+  <!-- <div class="behaviors-grid">
     <div class="behavior">
+      <div class="behavior-images">
+        <img src="assets/gif/acceleration_request.gif" alt="Result GIF 1" width="100%">
+      </div>
+      <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
+    </div>
+  </div> -->
+
+  <div class="full-width-behaviors">
+    <div class="full-width-behavior">
       <div class="behavior-images">
         <img src="assets/gif/acceleration_request.gif" alt="Result GIF 1" width="100%">
       </div>
@@ -334,7 +370,7 @@ simulated settings </p>
 
 <!-- ------------------------ ADDITIONAL MAPS ------------------------ -->
 
-<h2>Additional Map Environments</h2>
+<!-- <h2>Additional Map Environments</h2>
 <div class="behaviors-grid">
   <div class="behavior">
     <div class="behavior-images">
@@ -354,7 +390,9 @@ simulated settings </p>
     </div>
     <p id="explanation">Inflating obstacles in the map.</p>
   </div>
-</div>
+</div> -->
+
+<!-- ----------------------------------------------------------------------------------- -->
 
 <!-- <div class="behaviors-grid">
   <div class="behavior">
@@ -400,6 +438,29 @@ Figure 6: Output trajectory for sequence 00 and 02 from KITTI dataset <br/>
 
 </section>
 
+<h2>Additional Map Environments</h2>
+<div class="full-width-behaviors">
+  <div class="full-width-behavior">
+    <div class="behavior-images">
+      <img src="assets/gif/asteroid_1.gif" alt="Result GIF 1">
+    </div>
+    <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
+  </div>
+  <div class="full-width-behavior">
+    <div class="behavior-images">
+      <img src="assets/gif/asteroid_2.gif" alt="Result GIF 2">
+    </div>
+    <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
+  </div>
+  <div class="full-width-behavior">
+    <div class="behavior-images">
+      <img src="assets/gif/demo_asteroid2.gif" alt="Result GIF 3">
+    </div>
+    <p id="explanation">Inflating obstacles in the map.</p>
+  </div>
+  <!-- Add more behaviors if needed -->
+</div>
+
 
 <section id="discussion-future-work">
   <h1 id="discussion--future-work">Discussion &amp; Future work</h1>
@@ -439,13 +500,13 @@ Figure 6: Output trajectory for sequence 00 and 02 from KITTI dataset <br/>
 <h1 id="note">Resources</h1>
 <ul>
   <li>
-    <p>The powerpoint presentation for same work can be found <a href="assets/MRS-project1-presentation.pptx">here</a></p>
+    <p>The report for this project can be found <a href="assets/MRS_project1_report.pdf">here</a></p>
+  <li>
+    <p>The powerpoint presentation can be found <a href="assets/MRS-project1-presentation.pptx">here</a></p>
   </li>
   <li>
-    <p>The source code for the project can be found <a href="link">here</a></p>
+    <p>The source code can be found <a href="https://github.com/KhAlamdar11/mrs-r1">here</a></p>
   </li>
-  <li>
-    <p>The report for the project can be found <a href="assets\MRS_project1_report.pdf">here</a></p>
 </ul>
 </section>
 
