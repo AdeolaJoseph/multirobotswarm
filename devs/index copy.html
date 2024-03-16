@@ -95,24 +95,19 @@ simulated settings </p>
 
   <!-- <p>The local neighbourhood delineates the area around a boid where it can sense and interact with others. This concept underpins the adaptive and cohesive movements seen in swarms, allowing for a decentralized decision-making process that results in complex, emergent behaviors. It dynamically adjusts as the swarm moves, ensuring that each boid's actions are influenced by its immediate surroundings.</p> -->
 
-  <p id="explanation">The local neighbourhood around a boid encompasses the area where it can sense and interact with other boids, critically influenced by spatial proximity and directional alignment. Spatial proximity refers to how close other boids are, while directional alignment and field of view (FoV) consider the direction boids are facing relative to each other. Together, these factors ensure a boid only responds to others within a certain distance and within its line of sight, enabling more natural and cohesive swarm behaviors. This blend of proximity and FoV helps simulate complex interactions and movements, mirroring the nuanced dynamics seen in natural swarms. </p>
+  <p class="explanation">The local neighbourhood around a boid encompasses the area where it can sense and interact with other boids, critically influenced by spatial proximity and directional alignment. Spatial proximity refers to how close other boids are, while directional alignment and field of view (FoV) consider the direction boids are facing relative to each other. Together, these factors ensure a boid only responds to others within a certain distance and within its line of sight, enabling more natural and cohesive swarm behaviors. This blend of proximity and FoV helps simulate complex interactions and movements, mirroring the nuanced dynamics seen in natural swarms.</p>
 
-  <!-- In the local neighbourhood, a boid detects nearby boids and obstacles, facilitating essential swarm behaviors like alignment, cohesion, and separation. These interactions are critical for simulating realistic flocking dynamics, enabling the swarm to navigate its environment as a cohesive unit while avoiding collisions. -->
-  <li><h2>Effect of Neighbourhood Radius</h2></li>
   <div class="behaviors-grid">
     <div class="behavior">
-      <h3>Small Radius</h3>
-      <p id="explanation"> A smaller neighborhood radius means a boid is influenced by only a select few nearby boids, leading to interactions that are limited to those immediately around it, as shown in the figure below.</p>
+      <h3>Description</h3>
+      <p class="explanation">In the local neighbourhood, a boid detects nearby boids and obstacles, facilitating essential swarm behaviors like alignment, cohesion, and separation. These interactions are critical for simulating realistic flocking dynamics, enabling the swarm to navigate its environment as a cohesive unit while avoiding collisions.</p>
       <div class="behavior-images">
         <img src="assets/Images/local_neighborhood/local_neighborhood_1.png" alt="Local Neighbourhood visualization">
       </div>
     </div>
     <div class="behavior">
-      <h3>Large Radius</h3>
-      <p id="explanation">
-        Conversely, enlarging the neighborhood radius broadens the scope of influence, incorporating more boids into the local vicinity and thereby affecting the collective behavior of the swarm more substantially.</p>
-
-        <!-- This demonstrates boids adjusting their movements based on the local neighbourhood's dynamic changes. It highlights the significance of immediate peer influence in guiding collective behavior, ensuring the swarm's cohesive yet adaptable interaction patterns without the need for central coordination.</p> -->
+      <h3>Simulation</h3>
+      <p class="explanation">This demonstrates boids adjusting their movements based on the local neighbourhood's dynamic changes. It highlights the significance of immediate peer influence in guiding collective behavior, ensuring the swarm's cohesive yet adaptable interaction patterns without the need for central coordination.</p>
       <div class="behavior-images">
         <img src="assets/Images/local_neighborhood/local_neighborhood_2.png" alt="Simulation of boids adjusting to local neighbourhood">
       </div>
@@ -181,13 +176,12 @@ simulated settings </p>
 </ul>
 </section> -->
 
- <section id="implemented-behaviors">
+<section id="implemented-behaviors">
   <h1>Achieving Coordination</h1>
   <p>We implemented various behaviors inspired by Reynolds' rules for multi-robot systems. These behaviors allow the robots to exhibit coordinated movements and achieve specific objectives. Each behavior serves a unique purpose and contributes to the overall functionality of the system.</p>
 
 <!-- <h2>Basic Behaviors</h2>
-<p id="explanation"></p>
-<div class="three-cards-grid">
+<div class="behaviors-grid">
   <div class="behavior">
     <h3>Separation</h3>
     <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
@@ -209,11 +203,11 @@ simulated settings </p>
       <img src="assets/gif/Cohesion.gif" alt="Cohesion behavior">
     </div>
   </div>
-</div>  -->
+</div> -->
 
-<ul>
-<li><h2>Basic Behaviors</h2></li>
-<p id="explanation">The core of our coordination strategy consists of three basic behaviors: Separation, Alignment, and Cohesion. These behaviors synergize to enable autonomous robots to navigate complex environments as a cohesive unit, ensuring efficient movement, collision avoidance, and group integrity. By mimicking the natural dynamics observed in biological swarms, these behaviors equip our multi-robot systems with the ability to adapt to various scenarios, facilitating both individual autonomy and collective decision-making.</p>
+
+<h2>Basic Behaviors</h2>
+<p class="explanation"></p>
 <div class="three-cards-grid">
   <div class="behavior">
     <h3>Separation</h3>
@@ -239,12 +233,21 @@ simulated settings </p>
 </div>
 
 
-<li><h2 >Local Migratory Urge</h2></li>
- <p id="explanation"> The local migratory urge or arrival behavior is designed for the robots to reach a designated position while gradually slowing down as the swarm
-  gets closer to the target. This behavior carefully adjusts the swarm’s speed, gradually reducing it until it comes to a complete stop at the target location. The process starts when the flock
-  is still a considerable distance from the target, moving at its maximum speed. As it enters a predefined slowing distance, the speed begins to diminish. Beyond this radius, the
-  desired velocity stays at the maximum limit, but once inside, it’s steadily reduced to zero. To smoothen this convergence,
-  the hyperbolic tangent function (tanh) is used. This step-by-step reduction in speed, triggered when the current speed surpasses a set slowdown level and the swarm is within the slowing radius, ensures that the flock decelerates smoothly, ultimately stopping precisely at the goal. The steering force also decreases accordingly, reducing to zero as the target is neared.</p>
+<h2 >Local Migratory Urge</h2>
+ <p id="explanation"> The Arrival behavior is designed for the robots to reach a designated position while gradually slowing down as the swarm
+  gets closer to the target. This behavior carefully adjusts the swarm’s
+  speed, gradually reducing it until it comes to a complete
+  stop at the target location. The process starts when the flock
+  is still a considerable distance from the target, moving at its
+  maximum speed. As it enters a predefined slowing distance, the speed begins to diminish. Beyond this radius, the
+  desired velocity stays at the maximum limit, but once inside,
+  it’s steadily reduced to zero. To smoothen this convergence,
+  the hyperbolic tangent function (tanh) is used. This step-by-step reduction in speed, triggered when the current speed
+  surpasses a set slowdown level and the swarm is within the
+  slowing radius, ensures that the flock decelerates smoothly,
+  ultimately stopping precisely at the goal. The steering force
+  also decreases accordingly, reducing to zero as the target is
+  neared.</p>
 <div class="behaviors-grid">
   <div class="behavior">
     <h3>Arrival Description</h3>
@@ -262,54 +265,39 @@ simulated settings </p>
   </div>
 </div>
 
-In our method, we conceptualize the goal as a circular
-area, centered at a designated point on the map, with a radius equal to the desired minimum separation distance. This circle serves as the target area for the flock. To effectively guide the flock, certain boids are selected as leaders. These leaders utilize the arrival steering force to steer the rest of the flock towards the goal, while the flock adheres to basic behavioral rules of separation, alignment, and cohesion.
-
-<li><h2 >Obstacle Avoidance</h2></li>
+<h2 >Obstacle Avoidance</h2>
 <p id="explanation">The behaviors described above ensure cohesive flock movement among the boids while preventing collisions with each
   other. However, the environment may introduce obstacles
   that necessitate avoidance maneuvers by the boids. The two strategies we implemented for obstacle avoidance are shown below.</p>
 
   <ul>
     <li><h3>Potential Fields</h3></li>
-    <p id="explanation">Potential Fields operate on a global planning level, with a precomputed potential field that guides the boids in avoiding obstacles. The Potential Field approach uses the Brushfire algorithm to assign values to individual cells within the grid, reflecting the distance from obstacles, creating a force field where the repulsion direction exerted by an obstacle on the boid is expressed as a vector at any cell location. This force vector extends orthogonally from the obstacles and exhibits a greater magnitude at cells closer to the obstacles​. This approach, while computationally efficient, can sometimes lead to boids getting trapped in local minima or exhibiting oscillatory behavior around the boundaries of the field.</p>
-
+    <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
     <div class="behaviors-grid">
       <div class="behavior">
-        <h3>Potential Field Function</h3>
-        <p id="explanation">The potential function calculated for a circular object
-          in a confined rectangular environment, is depicted in figure
-          below. The potential is elevated in close proximity to the obstcles and diminishes linearly with increasing distance from
-          the obstacle. The boid must navigate downhill to maintain
-          a safe distance from the obstacle.
-          .</p>
+        <h3>Potential Fields</h3>
+        <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
         <div class="behavior-images">
           <img src="assets/Images/Obstacle Avoidance/Potential Field/cricle_potfield.png" alt="Cohesion behavior">
         </div>
       </div>
       <div class="behavior">
-        <h3>Force Field</h3>
-        <p id="explanation">Force field for a bounded circular obstacle. The force field associated with this potential function can be computed by determining its gradient. Therefore, the repulsion direction exerted by an obstacle
-          on the boid, expressed as a vector at any cell location, can
-          be determined using this force field. </p>
+        <h3>Potential Fields</h3>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
         <div class="behavior-images">
           <img src="assets/Images/Obstacle Avoidance/Potential Field/circle.png" alt="Steer to Avoid Image 2">
         </div>
       </div>
-    </div>
-
-      <p id="explanation">Some examples of potential fields are shown by the following images</p>
-    <div class="behaviors-grid">
       <div class="behavior">
-        <!-- <h3>Potential Fields</h3> -->
-        <p>Force fields in a hard maze environment.</p>
+        <h3>Potential Fields</h3>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
         <div class="behavior-images">
           <img src="assets/Images/Obstacle Avoidance/Potential Field/hard_maze.png" alt="Steer to Avoid Image 2">
         </div>
       </div>
       <div class="behavior">
-        <!-- <h3>Potential Fields</h3> -->
-        <p>Force field in a simple maze environment.</p>
+        <h3>Potential Fields</h3>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
         <div class="behavior-images">
           <img src="assets/Images/Obstacle Avoidance/Potential Field/simple_maze.png" alt="Steer to Avoid Image 2">
         </div>
@@ -317,66 +305,38 @@ area, centered at a designated point on the map, with a radius equal to the desi
     </div>
 
     <li><h3>Steer to Avoid</h3></li>
-    <p id="explanation">In contrast, Steer to Avoid is a local planning technique that allows for real-time responsiveness. Boids adjust their path by steering away from obstacles, based on immediate sensory input. The Steer-to-Avoid method involves assessing potential paths from a lookahead point—a hypothetical future position based on the object’s current orientation and potential angular adjustments. By gradually altering the orientation angle in incremental steps, the algorithm explores two directions, calculates a new orientation, and derives a lookahead path extending from the object's current position. The algorithm checks if these paths encounter any obstacles, and if a valid path is found that is free of obstacles, the object's orientation is updated to align with this obstacle-free path. This method is repeated iteratively until a valid path is found or the angular adjustments reach a limit without finding a clear path. Having the steer-to-avoid behavior as a part of the system, many forces could interfere with each other</p>
-
+    <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
     <div class="behaviors-grid">
       <div class="behavior">
         <h3>Algorithm</h3>
-        <p id="explanation">The algorithm evaluates whether
-          these paths encounter any obstacles or impediments in
-          the environment. If the lookahead path resulting from a
-          particular orientation adjustment is free from obstacles, the
-          algorithm updates the object’s orientation to align with this
-          obstacle-free path, steering the object in a direction that
-          avoids potential obstacles.
-          .</p>
+        <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
         <div class="behavior-images">
           <img src="assets/Images/Obstacle Avoidance/See to Avoid/steer_to_avoid.png" alt="Cohesion behavior">
         </div>
       </div>
       <div class="behavior">
         <h3>Corner Case</h3>
-        <p id="explanation">The
-          following figure shows a case where the boid adjusted its direction to avoid an obstacle but got pushed back by another force that can be a separation force, for example. This corner
-          case was the reason why the method had to check the whole
-          path ahead instead of only the look-ahead point.</p>
+        <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
         <div class="behavior-images">
           <img src="assets/Images/Obstacle Avoidance/See to Avoid/corners.png" alt="Steer to Avoid Image 2">
         </div>
       </div>
     </div>
+  </ul>
 
-<p id="explanation">Example of a corner case where steer-to-avoid works is shown below</p>
+ 
+<h2>Obstacle Avoidance Simulation</h2>
 <div class="behaviors-grid">
   <div class="behavior">
-    <!-- <h3>Obstacle Avoidance</h3> -->
-    <!-- <p>Environments with lengthy wall obstacles benefit from a slightly higher increment angle.</p> -->
+    <h3>Obstacle Avoidance</h3>
+    <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
     <div class="behavior-images">
-      <img src="assets/gif/sta_corner_case_stage.gif" alt="Cohesion behavior">
+      <img src="assets/gif/Cohesion.gif" alt="Cohesion behavior">
     </div>
   </div>
   <div class="behavior">
-    <!-- <h3>Steer to Avoid</h3> -->
-    <!-- <p>In cluttered settings, especially with smoother obstacles, a smaller increment angle allows for more agile movements around obstacles.</p> -->
-    <div class="behavior-images">
-      <!-- <img src="assets/gif/steer_to_avoid_1.gif" alt="Steer to Avoid Image 1"> -->
-      <img src="assets/gif/sta_corner_case_rviz.gif" alt="Steer to Avoid Image 2">
-      <!-- <img src="assets/gif/s.gif" alt="Steer to Avoid Image 3"> -->
-    </div>
-  </div>
-</div>
-<li><h2>Effect of Increment Angle of Steer-to-Avoid</h2></li>
-<div class="behaviors-grid">
-  <div class="behavior">
-    <!-- <h3>Obstacle Avoidance</h3> -->
-    <p>Environments with lengthy wall obstacles benefit from a slightly higher increment angle.</p>
-    <div class="behavior-images">
-      <img src="assets/gif/obs_avoidance_lengthy_wall.gif" alt="Cohesion behavior">
-    </div>
-  </div>
-  <div class="behavior">
-    <!-- <h3>Steer to Avoid</h3> -->
-    <p>In cluttered settings, especially with smoother obstacles, a smaller increment angle allows for more agile movements around obstacles.</p>
+    <h3>Steer to Avoid</h3>
+    <p>This behavior ensures each robot maintains a certain distance from others to avoid collisions.</p>
     <div class="behavior-images">
       <!-- <img src="assets/gif/steer_to_avoid_1.gif" alt="Steer to Avoid Image 1"> -->
       <img src="assets/gif/steer_to_avoid_2.gif" alt="Steer to Avoid Image 2">
@@ -384,67 +344,24 @@ area, centered at a designated point on the map, with a radius equal to the desi
     </div>
   </div>
 </div>
-</ul>
-
-
-<li><h2>Comparison between potential field and steer-to-avoid method of obstacle avoidance</h2></li>
-<div class="comparison-table">
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Potential Field</th>
-        <th>Steer to Avoid</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="pros">Pros</td>
-        <td>Computationally fast (Global planning)<br>Retrieving the force vector from the Boid's current cell</td>
-        <td>Real-time Responsiveness (Local Planning)<br>Adaptable to Dynamic Environments (Agile Navigation)</td>
-      </tr>
-      <tr>
-        <td class="cons">Cons</td>
-        <td>Boids can get stuck in local minima<br>Can lead to oscillatory behavior</td>
-        <td>Can struggle in highly cluttered or complex environments</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</ul>
 
 </section>
 
 <section>
   <h2 id="algorithm-description">Prioritized Acceleration</h2>
-  <p id="explanation">
-  Prioritized acceleration allocation operates on a hierarchy
-  of behaviors, assigning acceleration requests based on their
-  importance, which can shift in response to changing scenarios. Acceleration is allocated to behaviors according to a
-  predetermined priority list.
-  </p> 
+  <p id="explanation">Prioritized acceleration allocation uses a hierarchy to assign accelerations to behaviors based on their importance, adjusting for scenario changes.</p> 
   
-  <div class="behaviors-grid" style="width: 50%; margin: auto;">
+  <div class="behaviors-grid">
     <div class="behavior">
       <h3>Priority Pyramid</h3>
-      <p>An example of acceleration priority pyramid showing behaviours in ascending order of importance.</p>
+      <p>Obstacle avoidance ensures that robots can identify and navigate around obstacles in their path.</p>
       <div class="behavior-images">
         <img src="assets/Images/Acceleration/prioritized_acceleration.png" alt="prioritized acceleration pyramid">
       </div>
     </div>
   </div>
 </ul>
-  <p id="explanation"> 
-    Requests for acceleration are processed in this order
-    until the cumulative demand surpasses the boid’s maximum
-    acceleration limit. Should this occur, the allocation for the
-    last behavior is reduced to remain within the maximum
-    limit. The navigation system ensures that acceleration is
-    distributed first to address the most critical behaviors, potentially deferring less critical ones. For example, avoidance
-    maneuvers to circumvent obstacles would take precedence
-    over flock cohesion.
-    </p>
-    <!-- is given according to a priority list, stopping when reaching the boid's maximum limit—if exceeded, the last behavior's allocation is reduced. This system prioritizes critical behaviors, like obstacle avoidance, over less critical ones, such as flock cohesion -->
+  <p id="explanation"> is given according to a priority list, stopping when reaching the boid's maximum limit—if exceeded, the last behavior's allocation is reduced. This system prioritizes critical behaviors, like obstacle avoidance, over less critical ones, such as flock cohesion.</p>
   <!-- <div class="behaviors-grid">
     <div class="behavior">
       <div class="behavior-images">
@@ -462,11 +379,8 @@ area, centered at a designated point on the map, with a radius equal to the desi
       <p id="explanation">Basic Behaviors, Obstacle Avoidance & Migratory Urge.</p>
     </div>
   </div>
-</section>
 
-<!-- <section>
-  <h2>Leader Selection</h2>
-</section> -->
+</section>
 
 
 

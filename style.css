@@ -50,7 +50,37 @@ body{padding:0;margin:0;font-family:"Open Sans", "Helvetica Neue", Helvetica, Ar
     }
   }
   
-      
+
+/*  ------------------------------------ COMPARISON TABLE STYLES ------------------------------------ */
+
+.comparison-table {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  margin-bottom: 40px; /* Space between tables */
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap; /* Prevents text wrapping in cells */
+}
+
+.comparison-table th, 
+.comparison-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.comparison-table th {
+  background-color: #009926;
+  color: #fff;
+}
+
+/* Add styling for th and td elements here */
+
+/* No changes are needed in media query for the table layout */
+
+
 
 
   /* ----------------------------------- SYSTEM ARCHITECTURE STYLES ----------------------------------- */
